@@ -3,14 +3,14 @@
 Scripts I use for starting my Windows 10 VM with VFIO / PCI passthrough. It's pretty hacky and poorly explained, but maybe it'll be helpful to someone. I've been using this setup (with very minor tweaks along the way) for almost two years and am very happy with it. Featuring: USB controller rebinding, Synergy with NAT, absolutely no libvirt whatsoever.
 
 Hardware:
-> MOBO: ASUS z170 Pro Gaming Aura
-> CPU: Intel Skylake 6700k
-> Guest GPU: Radeon RX 480
-> Host graphics: Integrated
+- MOBO: ASUS z170 Pro Gaming Aura
+- CPU: Intel Skylake 6700k
+- Guest GPU: Radeon RX 480
+- Host graphics: Integrated
 
 OS:
-> Host: Arch Linux
-> Guest: Windows 10 Education
+- Host: Arch Linux
+- Guest: Windows 10 Education
 
 ## Notes
 I never managed to completely eliminate audio crackling, so I cheated and got a USB audio adapter. It works great.
