@@ -15,20 +15,19 @@ OS:
 ## Notes
 I never managed to completely eliminate audio crackling, so I cheated and got a USB audio adapter. It works great.
 
-Unfortunately mu mobo doesn't have nice USB IOMMU groupings, so the mouse, keyboard, USB mic, and USB audio adapter are plugged into a [USB expansion card](https://www.amazon.com/Mailiya-Expansion-Superspeed-Connector-Desktops/dp/B01G86538S). I just rebind the whole thing to vfio-pci and pass it through as a sort of fake kvm switch.
+Unfortunately my mobo doesn't have nice USB IOMMU groupings, so the mouse, keyboard, USB mic, and USB audio adapter are plugged into a [USB expansion card](https://www.amazon.com/Mailiya-Expansion-Superspeed-Connector-Desktops/dp/B01G86538S). I just rebind the whole thing to vfio-pci and pass it through as a sort of fake kvm switch.
 
-### Issues
+#### Issues
 - GPU performance suspected to degrade after VM reboot - need to confirm this is happening
 - xrandr glitch (pink bars in top L corner) sometimes prevents VM from taking control of monitor, happens maybe 10% of the time?
 - If VM crashes / shuts down abruptly, often won't recognize GPU again until host is rebooted
 
-### To do
-- [] Wait longer/smarter before starting synergy so it doesn't capture mouse & kb too early
-- [] Pin iothread as well as CPU threads?
-- [] Clean out cores with cgroups before pinning?
-- [] Benchmark comparisons for above
-- [] qemu command line vs libvirt benchmarking
-- [] Test looking glass
+#### To do
+- [ ] Wait longer/smarter before starting synergy so it doesn't capture mouse & kb too early
+- [ ] Pin iothread as well as CPU threads?
+- [ ] Clean out cores with cgroups before pinning?
+- [ ] Benchmark comparisons for above
+- [ ] qemu command line vs libvirt benchmarking
 
 ## Requirements
 
@@ -38,12 +37,12 @@ Unfortunately mu mobo doesn't have nice USB IOMMU groupings, so the mouse, keybo
 
 ## Acknowledgments
 
-* Mark Nipper - [CPU pinning](https://www.redhat.com/archives/vfio-users/2015-August/msg00100.html
+* Mark Nipper - [CPU pinning](https://www.redhat.com/archives/vfio-users/2015-August/msg00100.html)
 
-### Useful guides
+#### Useful guides
 
 * [Arch wiki on PCI passthrough](https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF)
 * [Alex Williamson's guide](https://vfio.blogspot.com/2015/05/vfio-gpu-how-to-series-part-1-hardware.html)
 * [DominicM's guide](http://dominicm.com/gpu-passthrough-qemu-arch-linux/)
-* [Bufferoverflow.io guide](https://bufferoverflow.io/gpu-passthrough/) - setup without libvirt
+* [Bufferoverflow.io guide](https://bufferoverflow.io/gpu-passthrough/) - includes setup without libvirt
 * [Setting MSI in windows](http://forums.guru3d.com/showthread.php?t=378044)
